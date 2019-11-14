@@ -5,6 +5,8 @@ import BottomRow from "./BottomRow";
 function App() {
   const [lionScore, setLionScore] = useState(0);
   const [tigerScore, setTigerScore] = useState(0);
+  const [currentQuarter, setCurrentQuarter] = useState(1);
+  
 
   const homeTouchdown = event => {
     setLionScore(lionScore + 7);
@@ -17,6 +19,9 @@ function App() {
   };
   const awayFieldGoal = event => {
     setTigerScore(tigerScore + 3);
+  };
+  const increaseQuarter = event => {
+    setCurrentQuarter(currentQuarter + 1);
   };
 
   return (
@@ -33,7 +38,9 @@ function App() {
             <div className="away__score">{tigerScore}</div>
           </div>
         </div>
-        <BottomRow />
+        <BottomRow
+          cq = {currentQuarter}
+        />
       </section>
       <section className="buttons">
         <div className="homeButtons">
@@ -44,9 +51,14 @@ function App() {
           <button className="awayButtons__touchdown" onClick={awayTouchdown}>Away Touchdown</button>
           <button className="awayButtons__fieldGoal" onClick={awayFieldGoal}>Away Field Goal</button>
         </div>
+        <div className = "quarterButton">
+          <button className = "quarterButton__quarter" onClick={increaseQuarter}>Next Quarter</button>
+        </div>
       </section>
     </div>
+
   );
+
 }
 
 export default App;
