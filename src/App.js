@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import "./App.css";
 import BottomRow from "./BottomRow";
 
+
 function App() {
   const [lionScore, setLionScore] = useState(0);
   const [tigerScore, setTigerScore] = useState(0);
   const [currentQuarter, setCurrentQuarter] = useState(1);
+  
   
 
   const homeTouchdown = event => {
@@ -38,10 +40,13 @@ function App() {
             <div className="away__score">{tigerScore}</div>
           </div>
         </div>
-        <BottomRow
-          cq = {currentQuarter}
+
+        <BottomRow 
+          quarter = {currentQuarter}
         />
+
       </section>
+
       <section className="buttons">
         <div className="homeButtons">
           <button className="homeButtons__touchdown" onClick={homeTouchdown}>Home Touchdown</button>
@@ -56,6 +61,7 @@ function App() {
         </div>
       </section>
     </div>
+
 
   );
 
